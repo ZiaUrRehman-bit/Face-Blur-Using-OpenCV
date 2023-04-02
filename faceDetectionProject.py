@@ -23,6 +23,10 @@ while True:
     if bboxs:
        
         x, y, w, h = bboxs
+
+        if x < 0: x = 0
+        if y < 0: y = 0
+
         imgCrop = frame[y:y+h, x:x+w]
         imgBlur = cv2.blur(imgCrop, (35, 35))
         frame[y:y+h, x:x+w] = imgBlur
